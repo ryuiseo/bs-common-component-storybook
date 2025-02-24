@@ -1,23 +1,28 @@
+import { CommonButton } from "./CommonBtnStyle";
+
 interface CommonBtnProps {
   children: string;
-  disabled: boolean;
-  color: string;
-  onClick: () => void;
+  disabled?: boolean;
+  backgroundColor?: string;
+  size?: "small" | "medium" | "large";
+  onClick?: () => void;
 }
 
 export default function CommonBtn({
   children,
-  disabled,
-  color,
+  disabled = false,
+  backgroundColor = "#83A80D",
+  size = "medium",
   onClick,
 }: CommonBtnProps) {
   return (
-    <button
+    <CommonButton
       disabled={disabled}
-      style={{ backgroundColor: color }}
+      color={backgroundColor}
+      size={size}
       onClick={onClick}
     >
       {children}
-    </button>
+    </CommonButton>
   );
 }
